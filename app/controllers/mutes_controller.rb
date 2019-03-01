@@ -7,7 +7,7 @@ class MutesController < ApplicationController
       flash[:success] = "メッセージを投稿しました"
       redirect_to root_url
     else
-      @mutes = current_user.mutes.order("created DESC").page(params[:page])
+      @mutes = current_user.feed_mutes.order("created DESC").page(params[:page])
       flash.now[:danger] = "メッセージの投稿に失敗しました"
       render "toppages/index"
     end
